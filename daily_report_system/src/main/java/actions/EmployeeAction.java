@@ -15,7 +15,8 @@ import services.EmployeeService;
  * 従業員に関わる処理を行うActionクラス
  *
  */
-public class EmployeeAction extends ActionBase {
+public class EmployeeAction extends ActionBase 
+{
 
     private EmployeeService service;
 
@@ -23,7 +24,8 @@ public class EmployeeAction extends ActionBase {
      * メソッドを実行する
      */
     @Override
-    public void process() throws ServletException, IOException {
+    public void process() throws ServletException, IOException 
+    {
 
         service = new EmployeeService();
 
@@ -38,7 +40,8 @@ public class EmployeeAction extends ActionBase {
      * @throws ServletException
      * @throws IOException
      */
-    public void index() throws ServletException, IOException {
+    public void index() throws ServletException, IOException 
+    {
 
         //指定されたページ数の一覧画面に表示するデータを取得
         int page = getPage();
@@ -61,16 +64,14 @@ public class EmployeeAction extends ActionBase {
 
         //一覧画面を表示
         forward(ForwardConst.FW_EMP_INDEX);
-        
-
     }
+    
     /**
      * 新規登録画面を表示する
      * @throws ServletException
      * @throws IOException
      */
-    public void entryNew()throws ServletException, IOException 
-    {
+    public void entryNew() throws ServletException, IOException {
 
         putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
         putRequestScope(AttributeConst.EMPLOYEE, new EmployeeView()); //空の従業員インスタンス
@@ -80,3 +81,4 @@ public class EmployeeAction extends ActionBase {
     }
 
 }
+
